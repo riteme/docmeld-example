@@ -80,13 +80,15 @@ REPLACEMENT = {
 }
 
 # Generator Settings
-DISABLE_DEBUG = True
 CACHE_DIRECTORY = '.cache'
-DISABLE_CACHE = False
 BLOCK_BEGIN_MARCO = 'ACM_BEGIN'
 BLOCK_END_MARCO = 'ACM_END'
 
 # Document Settings
+def from_file(path):
+    with open(path, 'r') as reader:
+        return reader.read().decode(ENCODING)
+
 CONTENT_TEMPLATE = u'<div class="toc">{toc}</div>{separator}{document}'
 TOC_CATEGORY_TEMPLATE = u'<h3 id="{category_md5}"><div class="left">{category}</div><div class="right">□</div></h3>'
 TOC_TITLE_TEMPLATE = u'<h4 class="title"><b><a href="#{id}">{id}</a></b>. {title}</h4>'
@@ -102,6 +104,7 @@ UNUSED_DOCUMENT_TEMPLATE = u'''<div class="document">
 <div>{description}</div></div>
 '''
 PAGE_SEPARATOR = u'<hr />'
+
 # Using KaTeX v0.11.0
 WEBPAGE_TEMPLATE = u'''<!DOCTYPE html><html><head>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/katex.min.css" integrity="sha384-BdGj8xC2eZkQaxoQ8nSLefg4AV4/AwB3Fj+8SUSo7pnKP6Eoy18liIKTPn9oBYNG" crossorigin="anonymous">
