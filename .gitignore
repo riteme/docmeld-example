@@ -1,0 +1,7 @@
+*.html
+*.pdf
+*.pyc
+__pycache__/*
+.vscode/*
+.cache/*
+*~
